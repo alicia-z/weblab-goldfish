@@ -1,0 +1,31 @@
+import React, { useState, useEffect } from 'react';
+
+function MatchUser({ users, user }) {
+  const [match, setMatch] = useState(null);
+  
+  useEffect(() => {
+    const matches = users.filter(
+      u => u.meal_swipes !== user.meal_swipes && u.looking_for_meal_swipes !== user.looking_for_meal_swipes
+    );
+    if (matches.length === 0) {
+      setMatch(null);
+    } else {
+      const randomIndex = Math.floor(Math.random() * matches.length);
+      setMatch(matches[randomIndex].id);
+    }
+  }, [users, user]);
+
+  return (
+    <div>
+      {match ? (
+        <div>
+          <p>Your match's id is: {match}</p>
+        </div>
+      ) : (
+        <p>No match found.</p>
+      )}
+    </div>
+  );
+}
+
+export default MatchUser;
