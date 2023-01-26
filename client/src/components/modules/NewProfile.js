@@ -26,7 +26,12 @@ const NewProfile = (props) => {
     setValue("");
   };
 
+  // TODO add in other fields later
   return (
+    <>
+    <div>
+        Please enter your profile information.
+    </div>
     <div className="u-flex">
       <input
         type="text"
@@ -44,6 +49,8 @@ const NewProfile = (props) => {
         Submit
       </button>
     </div>
+    </>
+
   );
 };
 

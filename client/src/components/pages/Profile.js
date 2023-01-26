@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { get } from "../../utilities"
+import { post } from "../../utilities";
 import NewProfile from "../modules/NewProfile.js"
 
 
@@ -19,12 +20,14 @@ const Profile = (props) => {
 
   // if user is signed in but is new user
   if (user.grad_year === 0 || user.grad_year == undefined) {
+    const updateUser = (value) => {
+      post("/api/profileinfo", {grad_year: value});
+    };
     return (
-      <NewProfile /> // TODO: add in onSubmit
+      <NewProfile onSubmit={updateUser} /> 
     )
   }
 
-  // TODO: change later to include profile info
   return (
     <>
       <h2 id="demobox"><center>MY PROFILE</center></h2>

@@ -43,10 +43,10 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
+// TODO fix; curretnly not working
 router.post("/profileinfo", auth.ensureLoggedIn, (req, res) => {
-  User.find({ googleid: req.query.googleid }).then((user) => {
-    // TODO later
-  });
+  User.findOneAndUpdate({ googleid: req.query.googleid }, {grad_year: req.query.grad_year});
+  User.save();
 });
 
 router.get("/users", (req, res) => {
