@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { get } from "../../utilities"
+import NewProfile from "../modules/NewProfile.js"
+
 
 import "../../utilities.css";
 
@@ -18,24 +20,7 @@ const Profile = (props) => {
   // if user is signed in but is new user
   if (user.grad_year === 0 || user.grad_year == undefined) {
     return (
-      <>
-        <div>
-          Please enter your profile information!
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder= "Graduation year"
-          />
-          <button
-            type="submit"
-            // onClick=
-          >
-        Submit
-        </button>
-        </div>
-      </>
-
+      <NewProfile /> // TODO: add in onSubmit
     )
   }
 
