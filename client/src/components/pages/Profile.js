@@ -15,6 +15,30 @@ const Profile = (props) => {
     return (<div> Loading! </div>);
   }
 
+  // if user is signed in but is new user
+  if (user.grad_year === 0 || user.grad_year == undefined) {
+    return (
+      <>
+        <div>
+          Please enter your profile information!
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder= "Graduation year"
+          />
+          <button
+            type="submit"
+            // onClick=
+          >
+        Submit
+        </button>
+        </div>
+      </>
+
+    )
+  }
+
   // TODO: change later to include profile info
   return (
     <>
