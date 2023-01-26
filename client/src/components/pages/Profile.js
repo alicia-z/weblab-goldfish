@@ -18,21 +18,21 @@ const Profile = (props) => {
   // TODO: change later to include profile info
   return (
     <>
-      <h2>MY PROFILE</h2>
+      <h2><center>MY PROFILE</center></h2>
       <div>
         Name: {user.name}
+        </div>
+      <div>
+        Gender: {user.gender}
       </div>
       <div>
-        Gender: 0
+        Year of Graduation: {user.grad_year}
       </div>
       <div>
-        Year of Graduation: 0
+        Has Swipes: {user.has_swipes}
       </div>
       <div>
-        Has Swipes: True
-      </div>
-      <div>
-        Major: 0
+        Major: {user.major}
       </div>
     </>
   );
