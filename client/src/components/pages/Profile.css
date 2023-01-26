@@ -1,0 +1,11 @@
+.borderexample {
+    border-width:3px;
+    border-style:solid;
+    border-color:#287EC7;
+}
+
+#demobox {
+    background-color: #cfc ;
+    padding: 10px ;
+    border: 1px solid green ;
+}
