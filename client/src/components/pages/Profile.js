@@ -19,10 +19,26 @@ const Profile = (props) => {
   return (
     <>
       <div>
-        your name is: {user.name}
+        MY PROFILE
+      </div>
+      <div>
+        Name: {user.name}
+      </div>
+      <div>
+        Gender: 0
+      </div>
+      <div>
+        Year of Graduation: 0
+      </div>
+      <div>
+        Has Swipes: True
+      </div>
+      <div>
+        Major: 0
       </div>
     </>
   );
 };
+
 
 export default Profile;
