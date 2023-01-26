@@ -18,9 +18,7 @@ const Profile = (props) => {
   // TODO: change later to include profile info
   return (
     <>
-      <div>
-        MY PROFILE
-      </div>
+      <h2>MY PROFILE</h2>
       <div>
         Name: {user.name}
       </div>
