@@ -5,7 +5,7 @@ function MatchUser({ users, user }) {
   
   useEffect(() => {
     const matches = users.filter(
-      u => u.meal_swipes !== user.meal_swipes && u.looking_for_meal_swipes !== user.looking_for_meal_swipes
+      u => u.has_swipes !== user.has_swipes
     );
     if (matches.length === 0) {
       setMatch(null);
