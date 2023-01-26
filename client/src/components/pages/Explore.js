@@ -22,28 +22,7 @@ const Explore = (props) => {
       </div>
     );
   }
-//   let storiesList = null;
-//   const hasStories = stories.length !== 0;
-//   if (hasStories) {
-//     storiesList = stories.map((storyObj) => (
-//       <Card
-//         key={`Card_${storyObj._id}`}
-//         _id={storyObj._id}
-//         creator_name={storyObj.creator_name}
-//         creator_id={storyObj.creator_id}
-//         userId={props.userId}
-//         content={storyObj.content}
-//       />
-//     ));
-//   } else {
-//     storiesList = <div>No stories!</div>;
-//   }
-//   return (
-//     <>
-//       {props.userId && <NewStory addNewStory={addNewStory} />}
-//       {storiesList}
-//     </>
-//   );
+
   return (  
     <div> 
       <img src="gf1.PNG" />

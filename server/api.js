@@ -43,14 +43,11 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
-// router.post("/users", (req, res) => {
-//   const newUser = new User ({
-//     name: req.body.name,
-//     googleid: req.body.googleid,
-//   })
-
-//   newUser.save().then((user) => res.send(user));
-// })
+router.post("/profileinfo", auth.ensureLoggedIn, (req, res) => {
+  User.find({ googleid: req.query.googleid }).then((user) => {
+    // TODO later
+  });
+});
 
 router.get("/users", (req, res) => {
   User.find({}).then((users) => res.send(users));
