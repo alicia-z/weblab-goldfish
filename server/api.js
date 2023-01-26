@@ -44,7 +44,7 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 
 // TODO fix; curretnly not working
-router.post("/profileinfo", auth.ensureLoggedIn, (req, res) => {
+router.post("/profileinfo", (req, res) => {
   User.findOneAndUpdate({ googleid: req.query.googleid }, {grad_year: req.query.grad_year});
 });
 
