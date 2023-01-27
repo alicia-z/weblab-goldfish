@@ -45,7 +45,7 @@ const NewProfile = (props) => {
   return (
     <>
     <div>
-        Please enter your profile information.
+        Please enter or edit your profile information.
     </div> 
     <div className="u-flex">
       <input
