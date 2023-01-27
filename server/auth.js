@@ -27,7 +27,7 @@ function getOrCreateUser(user) {
       name: user.name,
       googleid: user.sub,
       grad_year: 0,
-      has_swipes: True, 
+      has_swipes: true, 
       major: "0",
       gender: "0"
     });

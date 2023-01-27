@@ -52,7 +52,7 @@ const App = () => {
       <Router>
         <Explore path="/" userId = {userId} />
         <Matches path="/matches" />
-        <Profile path="/profile" />
+        <Profile path="/profile" userId={userId} />
         <NotFound default />
       </Router>
     </div>

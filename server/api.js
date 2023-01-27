@@ -45,7 +45,15 @@ router.post("/initsocket", (req, res) => {
 
 // TODO fix; curretnly not working
 router.post("/profileinfo", (req, res) => {
-  User.findOneAndUpdate({ googleid: req.query.googleid }, {grad_year: req.query.grad_year});
+  console.log(req.body.googleid)
+  console.log(req.body.grad_year)
+  if (req.body.googleid) {
+    User.findOne({ googleid: req.body.googleid }).then(
+    (user) => {user.grad_year = req.body.grad_year
+    user.save().then(() => (res.send(user)))}
+    );
+  }
+
 });
 
 router.get("/users", (req, res) => {

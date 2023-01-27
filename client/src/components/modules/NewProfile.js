@@ -13,6 +13,8 @@ import { post } from "../../utilities";
  */
 const NewProfile = (props) => {
   const [value, setValue] = useState("");
+  const [valueGender, setValueGender] = useState("");
+
 
   // called whenever the user types in the new post input box
   const handleChange = (event) => {

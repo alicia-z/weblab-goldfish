@@ -7,22 +7,30 @@ import NewProfile from "../modules/NewProfile.js"
 import "../../utilities.css";
 
 const Profile = (props) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(undefined);
 
   useEffect(() => {
     document.title = "Profile Page";
     get("/api/whoami").then((userObj) => setUser(userObj));
   }, []);
 
+  useEffect(()=> {
+    get("/api/whoami").then((userObj) => setUser(userObj));
+  }, [props.userId]);
+
   if (!user) {
     return (<div> Loading! </div>);
   }
 
   // if user is signed in but is new user
-  if (user.grad_year === 0 || user.grad_year == undefined) {
+  if (props.userId && (user.grad_year === 0 || user.grad_year == undefined)) {
     const updateUser = (value) => {
-      post("/api/profileinfo", {googleid: user.googleid, grad_year: value});
+      console.log(JSON.stringify(user))
+      post("/api/profileinfo", {googleid: user.googleid, grad_year: value}).then((userObj) => {
+          setUser(userObj)
+      });
     };
+    console.log(user.grad_year)
     return (
       <NewProfile onSubmit={updateUser} /> 
     )
