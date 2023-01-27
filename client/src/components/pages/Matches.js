@@ -26,7 +26,7 @@ const Matches = (props) => {
   // TODO: change later to include match info
 
   let user_new = user.filter(ele => {
-    return ele.grad_year == 2026
+    return ele.grad_year == 2020
   }).map (ele => {
     return <div>{JSON.stringify(ele)}</div>
   })
