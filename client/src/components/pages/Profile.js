@@ -11,12 +11,20 @@ const Profile = (props) => {
 
   useEffect(() => {
     document.title = "Profile Page";
-    get("/api/whoami").then((userObj) => setUser(userObj));
-  }, []);
+    if (props.userId) {
+      get("/api/user", {_id: props.userId}).then((userObj) => {
+        console.log(userObj)
+        setUser(userObj)});
+    }
+    //get("/api/whoami").then((userObj) => setUser(userObj));
+    //
+  }, [props.userId]); 
+  // IMPORTANT: user will log in again when refresh, isn't instantaneous so should add props.userId to dependency array
 
-  useEffect(()=> {
-    get("/api/whoami").then((userObj) => setUser(userObj));
-  }, [props.userId]);
+  // useEffect(()=> {
+  //   console.log(props.userId)
+    
+  // }, [props.userId]);
 
   if (!user) {
     return (<div> Loading! </div>);
@@ -33,6 +41,7 @@ const Profile = (props) => {
       });
     };
 
+  console.log(JSON.stringify(user))
   return (
     <>
       <h2 id="demobox"><center>MY PROFILE</center></h2>

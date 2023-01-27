@@ -55,9 +55,14 @@ const NewProfile = (props) => {
         onChange={handleChangeGradYear}
         // className="NewPostInput-input"
       />
+      {/* <datalist>
+        <input list="has swipes"/>
+        <option value="yes"/>
+        <option value="no"/>
+      </datalist> */}
       <input
         type="text"
-        placeholder="Have Swipes?"
+        placeholder="Has Swipes?"
         value={has_swipes}
         onChange={handleChangeHasSwipes}
         // className="NewPostInput-input"
