@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Matchfinder from "../modules/matchfinder";
 import { get } from "../../utilities";
 
 const Explore = (props) => {
@@ -25,8 +25,8 @@ const Explore = (props) => {
 
   return (  
     <div> 
-      <img src="gf1.PNG" />
       users list: {JSON.stringify(users)} 
+      <Matchfinder users={users} userId={props.userId} />
     </div>   
   )
 };
