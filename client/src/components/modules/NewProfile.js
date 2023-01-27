@@ -44,6 +44,8 @@ const NewProfile = (props) => {
   // TODO add in other fields later
   return (
     <>
+    <h2>My Profile</h2>
+    
     <div>
         Please enter your profile information.
     </div> 
