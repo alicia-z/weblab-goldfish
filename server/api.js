@@ -46,10 +46,10 @@ router.post("/initsocket", (req, res) => {
 // TODO fix; curretnly not working
 router.post("/profileinfo", (req, res) => {
   console.log(req.body.googleid)
-  console.log(req.body.grad_year)
+  console.log(req.body.gender)
   if (req.body.googleid) {
     User.findOne({ googleid: req.body.googleid }).then(
-    (user) => {user.grad_year = req.body.grad_year
+    (user) => {user.grad_year = req.body.grad_year, user.major = req.body.major, user.gender = req.body.gender
     user.save().then(() => (res.send(user)))}
     );
   }

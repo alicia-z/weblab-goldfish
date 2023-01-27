@@ -23,18 +23,15 @@ const Profile = (props) => {
   }
 
   // if user is signed in but is new user
-  if (props.userId && (user.grad_year === 0 || user.grad_year == undefined)) {
-    const updateUser = (value) => {
+  // if (props.userId && (user.grad_year === 0 || user.grad_year == undefined)) {
+    
+  // }
+  const updateUser = (grad_year, has_swipes, major, gender) => {
       console.log(JSON.stringify(user))
-      post("/api/profileinfo", {googleid: user.googleid, grad_year: value}).then((userObj) => {
+      post("/api/profileinfo", {googleid: user.googleid, grad_year: grad_year, major: major, gender: gender}).then((userObj) => {
           setUser(userObj)
       });
     };
-    console.log(user.grad_year)
-    return (
-      <NewProfile onSubmit={updateUser} /> 
-    )
-  }
 
   return (
     <>
@@ -54,6 +51,8 @@ const Profile = (props) => {
       <div>
         Major: {user.major}
       </div>
+      
+      <NewProfile onSubmit={updateUser} /> 
     </>
   );
 };
