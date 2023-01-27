@@ -12,20 +12,33 @@ import { post } from "../../utilities";
  * @param {({storyId, value}) => void} onSubmit: (function) triggered when this post is submitted, takes {storyId, value} as parameters
  */
 const NewProfile = (props) => {
-  const [value, setValue] = useState("");
-  const [valueGender, setValueGender] = useState("");
-
+  const [grad_year, setGradYear] = useState("");
+  const [has_swipes, setHasSwipes] = useState("");
+  const [major, setMajor] = useState("");
+  const [gender, setGender] = useState("");
 
   // called whenever the user types in the new post input box
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const handleChangeGradYear = (event) => {
+    setGradYear(event.target.value);
+  };
+  const handleChangeHasSwipes = (event) => {
+    setHasSwipes(event.target.value);
+  };
+  const handleChangeMajor = (event) => {
+    setMajor(event.target.value);
+  };
+  const handleChangeGender = (event) => {
+    setGender(event.target.value);
   };
 
   // called when the user hits "Submit" for a new post
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.onSubmit && props.onSubmit(value);
-    setValue("");
+    props.onSubmit && props.onSubmit(grad_year, has_swipes, major, gender);
+    setGradYear("");
+    setHasSwipes("");
+    setMajor("");
+    setGender("");
   };
 
   // TODO add in other fields later
@@ -37,9 +50,30 @@ const NewProfile = (props) => {
     <div className="u-flex">
       <input
         type="text"
-        placeholder="Graduation year"
-        value={value}
-        onChange={handleChange}
+        placeholder="Graduation Year"
+        value={grad_year}
+        onChange={handleChangeGradYear}
+        // className="NewPostInput-input"
+      />
+      <input
+        type="text"
+        placeholder="Have Swipes?"
+        value={has_swipes}
+        onChange={handleChangeHasSwipes}
+        // className="NewPostInput-input"
+      />
+    <input
+        type="text"
+        placeholder="Major"
+        value={major}
+        onChange={handleChangeMajor}
+        // className="NewPostInput-input"
+      />
+    <input
+        type="text"
+        placeholder="Gender"
+        value={gender}
+        onChange={handleChangeGender}
         // className="NewPostInput-input"
       />
       <button
