@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { internalIP } = require("webpack-dev-server");
 
 const UserSchema = new mongoose.Schema({
   name: String,
