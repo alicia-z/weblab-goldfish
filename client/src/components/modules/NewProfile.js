@@ -47,7 +47,7 @@ const NewProfile = (props) => {
     <h2>My Profile</h2>
     
     <div>
-        Please enter or edit your profile information.
+        Please enter or edit your profile information. If you edit, you must enter all the fields again (TODO change).
     </div> 
     <div className="u-flex">
       <input

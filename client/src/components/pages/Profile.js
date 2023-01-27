@@ -37,6 +37,9 @@ const Profile = (props) => {
   const updateUser = (grad_year, has_swipes, major, gender) => {
       console.log(JSON.stringify(user))
       let has_swipes_bool = (has_swipes === "T")
+      // let grad_year1 = user.grad_year ? grad_year === "" : grad_year
+      // console.log(user.grad_year)
+      // console.log(grad_year)
       post("/api/profileinfo", {googleid: user.googleid, grad_year: grad_year, has_swipes: has_swipes_bool, major: major, gender: gender}).then((userObj) => {
           setUser(userObj)
       });
