@@ -15,15 +15,42 @@ const Matches = (props) => {
     return (<div> Loading! </div>);
   }
 
+
+  if (user.length == 0){
+    return (<div>No matches yet!</div>)
+  }
+  //if ({JSON.stringify(user)}  == null) {
+    //return (<div> No Matches YET </div>);
+  //}
+
   // TODO: change later to include match info
+
+  if (user.length !=0){
+    let i = 0;
+    while (i < user.length) {
+      <div>counter</div>
+      i++;
+    }
+  }
+
+
+  let user_new = user.filter(ele => {
+    return ele.grad_year == 2020
+  }).map (ele => {
+    return <div>{JSON.stringify(ele)}</div>
+  })
+
   return (
     <>
       <h2><center>
         Your Matches
         </center></h2>
       <div>
-        No matches yet!
-        users list: {JSON.stringify(user)} 
+
+        users list: {user_new}
+      </div>
+      <div>
+        
       </div>
     </>
   );
