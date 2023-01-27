@@ -1,14 +1,27 @@
-import { get } from 'core-js/core/dict';
+import { get } from '../../utilities';
 import React, { useState, useEffect } from 'react';
 
 
 function Matchfinder(props) {
   const [match, setMatch] = useState(null);
+  const [user, setUser] = useState();
+
   
   useEffect(() => {
-    // get("/api/swipes", {userId: props.userId })
-    const matches = props.users.filter(
-      u => u.has_swipes !== props.user.has_swipes
+    get("/api/user", {_id: props.userId}).then((userObj) => setUser(userObj));
+    //get("/api/swipes", {userId: props.userId })
+    // get("/api/users", {users: props.users})
+    // get("/api/whoami").then((userObj) => setUser(userObj));
+    
+
+
+  }, [props.users, props.userId]);
+
+  useEffect(() => {
+    if (user) {
+        let matches = props.users.filter(ele => {
+      ele.has_swipes !== user.has_swipes
+    }
     );
     if (matches.length === 0) {
       setMatch(null);
@@ -16,8 +29,9 @@ function Matchfinder(props) {
       const randomIndex = Math.floor(Math.random() * matches.length);
       setMatch(matches[randomIndex].id);
     }
-  }, [users, user]);
-
+    }
+    
+  }, [user]);
 //   return (
 //     <>
 //         {match !== null ? (
