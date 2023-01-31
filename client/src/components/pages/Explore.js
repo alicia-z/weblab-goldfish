@@ -25,7 +25,7 @@ const Explore = (props) => {
 
   return (  
     <div> 
-      users list: {JSON.stringify(users)} 
+      {/* users list: {JSON.stringify(users)}  */}
       <Matchfinder users={users} userId={props.userId} />
     </div>   
   )
