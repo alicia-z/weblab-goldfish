@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Matchfinder from "../modules/matchfinder";
 import { get } from "../../utilities";
+import { post } from "../../utilities";
 
 const Explore = (props) => {
   const [users, setUsers] = useState([]);
@@ -23,13 +24,21 @@ const Explore = (props) => {
     );
   }
 
+  const updateMatch = (match) => {
+    // let grad_year1 = user.grad_year ? grad_year === "" : grad_year
+    // console.log(user.grad_year)
+    // console.log(grad_year)
+    post("/api/profileinfo", {googleid: props.userId, new_match: match, grad_year: undefined, major: undefined, gender: undefined, has_swipes: undefined})
+    //.then((userObj) => { setUser(userObj)});
+  };
+
   return (  
     <div> 
         <h2><center>
         EXPLORE 
         </center></h2>
       {/* users list: {JSON.stringify(users)}  */}
-      <Matchfinder users={users} userId={props.userId} />
+      <Matchfinder users={users} userId={props.userId} onSubmit = {updateMatch} />
     </div>   
   )
 };

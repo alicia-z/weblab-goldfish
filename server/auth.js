@@ -30,7 +30,7 @@ function getOrCreateUser(user) {
       has_swipes: true, 
       major: "0",
       gender: "0",
-      matches_list: []
+      matches_list: ["no matches yet"]
     });
 
     return newUser.save();

@@ -45,7 +45,7 @@ router.post("/initsocket", (req, res) => {
 
 router.post("/profileinfo", (req, res) => {
   // console.log(req.body.googleid)
-  // console.log(req.body.gender)
+  console.log(req.body.match)
   if (req.body.googleid) {
     User.findOne({ googleid: req.body.googleid }).then(
     (user) => {
@@ -53,6 +53,7 @@ router.post("/profileinfo", (req, res) => {
       if (req.body.has_swipes) user.has_swipes = req.body.has_swipes
       if (req.body.major) user.major = req.body.major
       if (req.body.gender) user.gender = req.body.gender
+      if (req.body.new_match) user.matches.push(req.body.new_match)
     user.save().then(() => (res.send(user)))}
     );
   }
