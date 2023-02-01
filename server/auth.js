@@ -29,7 +29,8 @@ function getOrCreateUser(user) {
       grad_year: 0,
       has_swipes: true, 
       major: "0",
-      gender: "0"
+      gender: "0",
+      matches_list: []
     });
 
     return newUser.save();

@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
   has_swipes: Boolean,
   major: String,
   gender: String,
+  matches_list: [String]
 });
 
 // compile model from schema

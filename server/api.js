@@ -48,7 +48,11 @@ router.post("/profileinfo", (req, res) => {
   // console.log(req.body.gender)
   if (req.body.googleid) {
     User.findOne({ googleid: req.body.googleid }).then(
-    (user) => {user.grad_year = req.body.grad_year, user.has_swipes = req.body.has_swipes, user.major = req.body.major, user.gender = req.body.gender
+    (user) => {
+      user.grad_year = req.body.grad_year, 
+      user.has_swipes = req.body.has_swipes, 
+      user.major = req.body.major, 
+      user.gender = req.body.gender
     user.save().then(() => (res.send(user)))}
     );
   }

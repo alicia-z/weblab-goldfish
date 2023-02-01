@@ -92,6 +92,17 @@ function Matchfinder(props) {
 //     </>
 // );
 
+  // called when the user hits "Submit" for a new post
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+
+  };
+
+  function refreshPage() {
+    window.location.reload();
+  }
+
 
   return (
     <>
@@ -99,6 +110,20 @@ function Matchfinder(props) {
         <p>Your match's name is: {match}</p>
         <p>Your match's graduation year is: {matchYear}</p>
         <p>Your match's major is: {matchMajor}</p>
+        <p>
+          <button
+            onClick={handleSubmit}
+          >
+            Match!
+          </button>
+
+          <button
+            type="button"
+            onClick={refreshPage}
+          >
+            See Next
+          </button>
+        </p>
       </div>
     </>
   );
