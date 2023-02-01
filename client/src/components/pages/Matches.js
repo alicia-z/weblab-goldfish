@@ -34,7 +34,7 @@ const Matches = (props) => {
   return (
     <>
       <h2><center>
-        Your Matches
+        MY MATCHES
         </center></h2>
       <div>
 
