@@ -21,11 +21,12 @@ const Explore = (props) => {
       get("/api/user", {_id: props.userId}).then((userObj) => {
         console.log(userObj)
         setUser(userObj)});
+        console.log("SUCCESS")
     }
     else {
       console.log("TEST")
     }
-  }, []);
+  }, [props.userId]);
 
   // TODO change later to something more informative
   // if user is not signed in
@@ -41,8 +42,9 @@ const Explore = (props) => {
     // let grad_year1 = user.grad_year ? grad_year === "" : grad_year
     // console.log(user.grad_year)
     // console.log(grad_year)
-    post("/api/profileinfo", {googleid: user.googleid, new_match: match, grad_year: undefined, major: undefined, gender: undefined, has_swipes: undefined}) 
-    //.then((userObj) => { setUser(userObj)});
+
+    // POST REQUEST BELOW DOES NOT WORK
+    // post("/api/profileinfo", {googleid: user.googleid, new_match: match, grad_year: undefined, major: undefined, gender: undefined, has_swipes: undefined}).then((userObj) => { setUser(userObj)});
   };
 
   return (  
