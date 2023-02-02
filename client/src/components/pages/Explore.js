@@ -5,6 +5,7 @@ import { post } from "../../utilities";
 
 const Explore = (props) => {
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState(undefined);
 
   // called when the "Feed" component "mounts", i.e.
   // when it shows up on screen
@@ -12,6 +13,18 @@ const Explore = (props) => {
     get("/api/users").then((userObjs) => {
       setUsers(userObjs)
     });
+    
+  }, []);
+
+  useEffect(() => {
+    if (props.userId) {
+      get("/api/user", {_id: props.userId}).then((userObj) => {
+        console.log(userObj)
+        setUser(userObj)});
+    }
+    else {
+      console.log("TEST")
+    }
   }, []);
 
   // TODO change later to something more informative
@@ -28,7 +41,7 @@ const Explore = (props) => {
     // let grad_year1 = user.grad_year ? grad_year === "" : grad_year
     // console.log(user.grad_year)
     // console.log(grad_year)
-    post("/api/profileinfo", {googleid: props.userId, new_match: match, grad_year: undefined, major: undefined, gender: undefined, has_swipes: undefined})
+    post("/api/profileinfo", {googleid: user.googleid, new_match: match, grad_year: undefined, major: undefined, gender: undefined, has_swipes: undefined}) 
     //.then((userObj) => { setUser(userObj)});
   };
 

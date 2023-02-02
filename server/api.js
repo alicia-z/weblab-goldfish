@@ -50,7 +50,7 @@ router.post("/profileinfo", (req, res) => {
     User.findOne({ googleid: req.body.googleid }).then(
     (user) => {
       if (req.body.grad_year) user.grad_year = req.body.grad_year
-      if (req.body.has_swipes) user.has_swipes = req.body.has_swipes
+      if (typeof req.body.has_swipes !== undefined) user.has_swipes = req.body.has_swipes
       if (req.body.major) user.major = req.body.major
       if (req.body.gender) user.gender = req.body.gender
       if (req.body.new_match) user.matches.push(req.body.new_match)

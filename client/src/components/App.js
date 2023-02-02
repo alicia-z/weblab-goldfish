@@ -50,7 +50,7 @@ const App = () => {
     <NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
     <div>
       <Router>
-        <Explore path="/" userId = {userId} />
+        <Explore path="/" userId={userId} />
         <Matches path="/matches" />
         <Profile path="/profile" userId={userId} />
         <NotFound default />
